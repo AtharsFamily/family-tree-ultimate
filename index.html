@@ -1,0 +1,48 @@
+cat > index.html <<'EOF'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Family Tree Ultimate</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🌳 Family Tree Ultimate</h1>
+    <div class="controls">
+      <button id="addPerson">+ Person</button>
+      <button id="autoLayout">Auto Layout</button>
+      <button id="exportJSON">Export JSON</button>
+      <button id="importJSON">Import JSON</button>
+      <button id="exportPNG">Export PNG</button>
+      <button id="exportPDF">Export PDF</button>
+      <button id="exportPDFtiled">Export PDF (Tiled)</button>
+      <input type="file" id="fileInput" style="display:none" />
+      <button id="loadDemo">Load Demo Clan</button>
+    </div>
+  </header>
+  <main>
+    <div id="tree"></div>
+    <aside id="sidebar">
+      <h2>Details</h2>
+      <form id="personForm">
+        <input type="hidden" id="personId" />
+        <label>Name:<br><input id="name" /></label><br>
+        <label>Birthdate:<br><input id="birthdate" type="date" /></label><br>
+        <label>Color:<br><input id="color" type="color" /></label><br>
+        <label>Photo:<br><input id="photo" type="file" accept="image/*" /></label><br>
+        <label>Parents:<br><select id="parent1"></select><select id="parent2"></select></label><br>
+        <label>Spouses:<br><select id="spouses" multiple></select></label><br>
+        <button type="submit">Save</button>
+      </form>
+      <h2>Legend</h2>
+      <ul id="legend"></ul>
+      <button id="addLegend">+ Legend Item</button>
+    </aside>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+EOF
